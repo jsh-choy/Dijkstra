@@ -1,7 +1,8 @@
 package DijkstraAlgorithm;
 
 public class NodeImpl implements Node {
-
+    private String _name;
+    private ArrayList<EdgeImpl> _outEdges;
     /* You will include the method signatures (return type, name, and arg types) for any node methods you
     need in this file. */
 
@@ -13,10 +14,49 @@ public class NodeImpl implements Node {
 
     /*Also, any node fields you want to add for the object should go in this file.  */
 
-    @Override
-    public String getName() {
-
-        return null;  //Dummy return value.  Remove when you implement!
+    public NodeImpl(String name) {
+        this._name = name;
     }
 
+    @Override
+    public String getName() {
+        return _name;  //Dummy return value.  Remove when you implement!
+    }
+
+
+    public ArrayList<EdgeImpl> getOutEdges() {
+      if (_outEdges.size() == 0) {
+        System.out.println("There are no outgoing edges");
+      } else {
+          return _outEdges;
+      }
+    }
+
+    boolean edgeExists(Node a, Node b) {
+      boolean flag = false;
+      for (int i = 0; i < _outEdges.size(); i++) {
+        if (_outEdges.get(i).getSrc() == a.getName() && _outEdges.get(i).getDest() == b.getName()) {
+          // Check to see if there is an edge between the two nodes...
+          //  if yes, return false;
+          flag = false;
+          return flag;
+        } else {
+          flag = true;
+        }
+      }
+      return flag;
+    }
+    
+    boolean delEdge(Node dest) {
+      for (int i = 0; i < _outEdges.size(); i++) {
+        if (_outEdges.get(i).getDest() == dest) {
+          _outEdges.remove(i);
+          return true;
+        }
+        return false;
+      }
+    }
 }
+
+
+

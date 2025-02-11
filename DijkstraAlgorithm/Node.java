@@ -1,5 +1,7 @@
 package DijkstraAlgorithm;
 
+import java.util.ArrayList;
+
 public interface Node {
 
      /* You will include the method signatures (return type, name, and arg types) for any node methods you
@@ -15,5 +17,7 @@ public interface Node {
      * @return the name of the node
      */
     String getName();
-
+    ArrayList<EdgeImpl> getOutEdges();
+    boolean edgeExists(Node src, Node dest);
+    boolean deleteEdge(Node dest);
 }

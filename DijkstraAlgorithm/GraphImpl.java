@@ -13,17 +13,26 @@ public class GraphImpl implements Graph {
 
     @Override
     public boolean addNode(String name) {
-        return false;  //Dummy return value.  Remove when you implement!
+        if (nodes.containsKey(name)) {
+            return false;
+        } else {
+            Node nd = new NodeImpl(name);
+            nodes.put(name, nd);
+            return true;
+        }
     }
 
     @Override
     public boolean addEdge(String src, String dest, double weight) {
+        // TODO:
+        EdgeImpl e = new EdgeImpl(src, dest, weight);
+
         return false;  //Dummy return value.  Remove when you implement!
     }
 
     @Override
     public boolean deleteNode(String name) {
-        //Hint: Do you need to remove edges when you delete a node?
+        // Hint: Do you need to remove edges when you delete a node?
 
         return false;  //Dummy return value.  Remove when you implement!
     }
@@ -35,7 +44,7 @@ public class GraphImpl implements Graph {
 
     @Override
     public int numNodes() {
-        return 0;  //Dummy return value.  Remove when you implement!
+        return nodes.size();
     }
 
     @Override
