@@ -20,6 +20,7 @@ public class EdgeImpl implements Edge {
         this._weight = weight;
     }
 
+    @Override
     public String getSrc() {
         return this._src;
     }

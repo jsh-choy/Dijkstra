@@ -1,5 +1,6 @@
 package DijkstraAlgorithm;
 
+
 import java.util.ArrayList;
 
 public interface Node {
@@ -18,6 +19,6 @@ public interface Node {
      */
     String getName();
     ArrayList<EdgeImpl> getOutEdges();
-    boolean edgeExists(Node src, Node dest);
+    boolean edgeExists(Node dest);
     boolean deleteEdge(Node dest);
 }

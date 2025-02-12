@@ -1,8 +1,12 @@
 package DijkstraAlgorithm;
 
+
+import java.util.ArrayList;
+
 public class NodeImpl implements Node {
     private String _name;
     private ArrayList<EdgeImpl> _outEdges;
+
     /* You will include the method signatures (return type, name, and arg types) for any node methods you
     need in this file. */
 
@@ -20,41 +24,44 @@ public class NodeImpl implements Node {
 
     @Override
     public String getName() {
-        return _name;  //Dummy return value.  Remove when you implement!
+        return _name;
     }
-
 
     public ArrayList<EdgeImpl> getOutEdges() {
-      if (_outEdges.size() == 0) {
-        System.out.println("There are no outgoing edges");
-      } else {
-          return _outEdges;
-      }
+        // TODO: Check if this implementation is correct
+        if (_outEdges.isEmpty()) {
+            System.out.println("There are no outgoing edges");
+        } else {
+            return _outEdges;
+        }
+        return null;
     }
 
-    boolean edgeExists(Node a, Node b) {
-      boolean flag = false;
-      for (int i = 0; i < _outEdges.size(); i++) {
-        if (_outEdges.get(i).getSrc() == a.getName() && _outEdges.get(i).getDest() == b.getName()) {
-          // Check to see if there is an edge between the two nodes...
-          //  if yes, return false;
-          flag = false;
-          return flag;
-        } else {
-          flag = true;
-        }
-      }
-      return flag;
-    }
-    
-    boolean delEdge(Node dest) {
-      for (int i = 0; i < _outEdges.size(); i++) {
-        if (_outEdges.get(i).getDest() == dest) {
-          _outEdges.remove(i);
-          return true;
+    @Override
+    public boolean edgeExists(Node dest) {
+        // If there is an outgoing edge to dest, return true
+        for (EdgeImpl e : _outEdges) {
+            if (e.getDest() == dest.getName()) {
+                return true;
+            }
         }
         return false;
-      }
+    }
+
+    @Override
+    public boolean deleteEdge(Node dest) {
+        if (edgeExists(dest)) {
+            for (EdgeImpl e : _outEdges) {
+                if (e.getDest() == dest.getName()) {
+                    _outEdges.remove(e);
+                    return true;
+                }
+            }
+        } else {
+            return false;
+        }
+
+        return false;
     }
 }
 

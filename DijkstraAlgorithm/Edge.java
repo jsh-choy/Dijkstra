@@ -9,7 +9,7 @@ public interface Edge {
     previous homeworks (e.g., BST.java and BSTImpl.java in homework 3) are good examples of
     interfaces and their implementations.
      */
-    String getStart();
+    String getSrc();
     String getDest();
     double getWeight();
 }
