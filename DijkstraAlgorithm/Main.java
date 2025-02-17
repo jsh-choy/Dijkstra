@@ -30,21 +30,16 @@ public class Main {
         System.out.println("Nodes added: " + _graph.numNodes());
         System.out.println("Edges added: " + _graph.numEdges());
 
-        System.out.println();
         // Delete an Edge
         _graph.deleteEdge("a", "b");
         _graph.deleteEdge("a", "d");
-
 
         // Delete a Node
         _graph.deleteNode("a");
 
         System.out.println("Edges added: " + _graph.numEdges());
-
         System.out.println();
         System.out.println("******* Ended *******");
-
-
         System.out.println();
         System.out.println("All the nodes in the graph");
 

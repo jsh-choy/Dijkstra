@@ -6,19 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bbadd331-8820-4ec5-b493-f85c300c2c36" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/.GraphImpl.java.swp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/EdgeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/EdgeImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/GraphImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/GraphImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/NodeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/NodeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/Edge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/EdgeImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/EdgeImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/GraphImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/GraphImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/NodeImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/NodeImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,24 +34,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/josh/Documents/GitHub/Dijkstra",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/josh/Documents/GitHub/Dijkstra&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JAVA"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -80,5 +68,16 @@
       <updated>1720101082536</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
