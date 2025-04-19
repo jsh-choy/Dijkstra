@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class NodeImpl implements Node {
     private String _name;
     private ArrayList<EdgeImpl> _outEdges;
+    private int _distance;
 
     /* You will include the method signatures (return type, name, and arg types) for any node methods you
     need in this file. */
@@ -62,6 +63,16 @@ public class NodeImpl implements Node {
         }
 
         return false;
+    }
+
+    @Override
+    public void setDist(int x) {
+        _distance = x;
+    }
+
+    @Override
+    public int getDist() {
+        return _distance;
     }
 }
 

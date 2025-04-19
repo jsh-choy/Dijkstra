@@ -69,7 +69,6 @@ public class GraphImpl implements Graph {
 
     @Override
     public int numNodes() {
-        // return _nodes.size(); returns the size of the nodes in graph
         return _nodes.size();
     }
 
@@ -80,7 +79,33 @@ public class GraphImpl implements Graph {
 
     @Override
     public Map<String, Double> dijkstra(String start) {
+        // TODO: Implement Dijkstra's Algorithm here after checking if the other features work correctly
+        System.out.println();
+        System.out.println("******** Reached Dijkstra ********");
+        System.out.println("- This function isn't functioning correctly right now");
 
-        return null;  //Dummy return value.  Remove when you implement!
+        HashMap<String, Double> _graph = new HashMap<>();
+        // Set the initial distance to the nodes to 0
+        //  Then set the rest of the nodes in the graph to -1
+        setInitDistance(start);
+
+        // TODO: Figure out how to visit each node whose distance is -1
+        //  At this point we are pointing at the starting node
+
+
+
+        System.out.println("******** Ended Dijkstra ********");
+        return _graph;
+    }
+
+    private void setInitDistance(String start) {
+        for (Node nd: _nodes.values()) {
+            if (nd.getName() == start) {
+                nd.setDist(0);
+                continue;
+            }
+            nd.setDist(-1);
+        }
+
     }
 }
