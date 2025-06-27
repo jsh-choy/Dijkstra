@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbadd331-8820-4ec5-b493-f85c300c2c36" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/GraphImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/GraphImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/NodeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/NodeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/GraphImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/GraphImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/NodeImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/NodeImpl.class" afterDir="false" />
-    </list>
+    <list default="true" id="bbadd331-8820-4ec5-b493-f85c300c2c36" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
