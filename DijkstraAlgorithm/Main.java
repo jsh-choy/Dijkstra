@@ -53,5 +53,10 @@ public class Main {
         for (Node nd : _graph._nodes.values()) {
             System.out.println("node: " + nd.getName() + ", distance: " + nd.getDist());
         }
+        System.out.println();
+        System.out.println("------- Edges in the Graph --------");
+        for (Edge edge : _graph._edges) {
+            System.out.println("src: " + edge.getSrc() + " | dest: " + edge.getDest() + " | weight: " + edge.getWeight());
+        }
     }
 }

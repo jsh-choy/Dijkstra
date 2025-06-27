@@ -21,6 +21,6 @@ public interface Node {
     ArrayList<EdgeImpl> getOutEdges();
     boolean edgeExists(Node dest);
     boolean deleteEdge(Node dest);
-    void setDist(int dist);
-    int getDist();
+    void setDist(double dist);
+    double getDist();
 }

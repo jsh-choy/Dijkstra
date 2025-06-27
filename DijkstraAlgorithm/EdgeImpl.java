@@ -3,6 +3,7 @@ package DijkstraAlgorithm;
 
 public class EdgeImpl implements Edge {
     /* You will include the implementations for any edge methods you need in this file. */
+    NodeImpl _nd;
     String _src;
     String _dest;
     double _weight;
