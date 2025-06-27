@@ -1,6 +1,5 @@
 package DijkstraAlgorithm;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -31,24 +30,21 @@ public class GraphImpl implements Graph {
         // Check if the graph contains the nodes
         if (_nodes.containsKey(src) && _nodes.containsKey(dest)) {
             EdgeImpl e = new EdgeImpl(src, dest, weight);
+//            _nodes.get(src).addEdge(src, dest, weight);
             _edges.add(e);
             return true;
         }
+
         return false;
     }
 
     @Override
     public boolean deleteNode(String name) {
-        // Hint: Do you need to remove edges when you delete a node?
-        System.out.println();
-        System.out.println("---- Deleting a node ---- ");
         if (_nodes.containsKey(name)) {
-            System.out.println("Deleting an edge when deleting a node...");
             _edges.removeIf(e -> e.getDest() == name);
             _nodes.remove(name);
             return true;
         } else {
-            System.out.println("The node doesn't exist");
             return false;
         }
     }
@@ -57,14 +53,10 @@ public class GraphImpl implements Graph {
     public boolean deleteEdge(String src, String dest) {
         for (EdgeImpl e : _edges) {
             if (e.getSrc() == src && e.getDest() == dest) {
-                System.out.println();
-                System.out.println("---- Deleting edges ----");
-                System.out.println("Successfully deleted edge: " + e.getSrc() + e.getDest());
                 _edges.remove(e);
                 return true;
             }
         }
-        System.out.println("Unsuccessfully deleted edge");
         return false;
     }
 
@@ -96,8 +88,7 @@ public class GraphImpl implements Graph {
         //      3. Do this until all the out-edges are done
         for (Node nd : _nodes.values()) {
             // Check to see if there are outgoing edges
-            ArrayList<EdgeImpl> xs = nd.getOutEdges();
-            for (EdgeImpl ed : xs) {
+            for (EdgeImpl ed : _edges) {
                 // For each edge connected to source
                 // If distance of dest node is <, not -1, distance of dest stays
                 // otherwise set the distance of dest node as the edge weight

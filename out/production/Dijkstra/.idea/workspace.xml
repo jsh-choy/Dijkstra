@@ -7,12 +7,11 @@
     <list default="true" id="bbadd331-8820-4ec5-b493-f85c300c2c36" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/GraphImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/GraphImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DijkstraAlgorithm/NodeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DijkstraAlgorithm/NodeImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/GraphImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/GraphImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/NodeImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dijkstra/DijkstraAlgorithm/NodeImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +43,10 @@
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/josh/Documents/GitHub/Dijkstra&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jchoy542e/Documents/Dijkstra&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
