@@ -81,28 +81,29 @@ public class GraphImpl implements Graph {
         System.out.println("Size of _edges (before): " + _edges.size());
 
         while (!_edges.isEmpty()) {
+            currNode = _nodes.get(_edges.peek().getSrc());
             nextNode = _nodes.get(_edges.peek().getDest());
             if (nextNode.getDist() == -1) {
                 nextNode.setDist(_edges.peek().getWeight());
-                System.out.println("current edge src: " + _edges.peek().getSrc());
-                System.out.println("current edge dest: " + _edges.peek().getDest());
-                System.out.println("current edge weight: " + _edges.peek().getWeight());
-                System.out.println();
+                System.out.println(_edges.peek().getSrc() +
+                        " -> " + _edges.peek().getDest() + " | dist: " + _edges.peek().getWeight());
                 _edges.pop();
                 continue;
             }
             if (nextNode.getDist() > _edges.peek().getWeight()) {
-                currNode = _nodes.get(_edges.peek().getSrc());
+                System.out.println("Node name: " + currNode.getName());
                 double sum =  currNode.getDist() + _edges.peek().getWeight();
                 nextNode.setDist(sum);
-                System.out.println("current edge src: " + _edges.peek().getSrc());
-                System.out.println("current edge dest: " + _edges.peek().getDest());
-                System.out.println("current edge weight: " + _edges.peek().getWeight());
-                System.out.println();
+                _graph.put(currNode.getName(), currNode.getDist());
+
+                System.out.println(_edges.peek().getSrc() +
+                        " -> " + _edges.peek().getDest() + " | dist: " + _edges.peek().getWeight());
+
                 _edges.pop();
             }
         }
-        System.out.println("distance to d: " + _nodes.get("d").getDist());
+        System.out.println("graph entry: " + _graph.entrySet());
+        // TODO: Need to figure out how to keep track of the distance to the other nodes from the starting node
         System.out.println("******** Ended Dijkstra ********");
         return _graph;
     }

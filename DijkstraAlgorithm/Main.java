@@ -25,30 +25,30 @@ public class Main {
         _graph.addEdge("b", "c", 2.0);
         _graph.addEdge("c", "d", 5.0);
 
-        System.out.println("Nodes added: " + _graph.numNodes());
-        System.out.println("Edges added: " + _graph.numEdges());
+//        System.out.println("Nodes added: " + _graph.numNodes());
+//        System.out.println("Edges added: " + _graph.numEdges());
 
         // TODO: Print out the added nodes
-        System.out.println();
-        System.out.println("******* Ended *******");
-
-        System.out.println();
-        System.out.println("--- Testing output ---");
-        System.out.println(_graph._nodes.keySet());
+//        System.out.println();
+//        System.out.println("******* Ended *******");
+//
+//        System.out.println();
+//        System.out.println("--- Testing output ---");
+//        System.out.println(_graph._nodes.keySet());
 
         // Start Dijkstra
 
         // Print out the nodes and the distance
-        System.out.println();
-        System.out.println("------- Nodes in the graph -------");
-        for (Node nd : _graph._nodes.values()) {
-            System.out.println("node: " + nd.getName() + ", distance: " + nd.getDist());
-        }
-        System.out.println();
-        System.out.println("------- Edges in the Graph --------");
-        for (Edge edge : _graph._edges) {
-            System.out.println("src: " + edge.getSrc() + " | dest: " + edge.getDest() + " | weight: " + edge.getWeight());
-        }
+//        System.out.println();
+//        System.out.println("------- Nodes in the graph -------");
+//        for (Node nd : _graph._nodes.values()) {
+//            System.out.println("node: " + nd.getName() + ", distance: " + nd.getDist());
+//        }
+//        System.out.println();
+//        System.out.println("------- Edges in the Graph --------");
+//        for (Edge edge : _graph._edges) {
+//            System.out.println("src: " + edge.getSrc() + " | dest: " + edge.getDest() + " | weight: " + edge.getWeight());
+//        }
         _graph.dijkstra("a");
     }
 }
