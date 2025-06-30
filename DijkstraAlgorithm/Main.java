@@ -8,7 +8,6 @@ public class Main {
         //You are encouraged (but not required) to include your testing code here.
         //Hint: Try to test basic operations (e.g., adding a few nodes and edges to graphs)
         //before you implement more complex methods
-
         System.out.println();
         System.out.println("******* Creating the graph *******");
         System.out.println();
@@ -22,19 +21,12 @@ public class Main {
 
         // Create Edges (a,b), (a,c), (b,c), (c,d)
         _graph.addEdge("a", "b", 1.0);
-        _graph.addEdge("a", "c", 3.0);
+        _graph.addEdge("a", "c", 9.0);
         _graph.addEdge("b", "c", 2.0);
         _graph.addEdge("c", "d", 5.0);
 
         System.out.println("Nodes added: " + _graph.numNodes());
         System.out.println("Edges added: " + _graph.numEdges());
-
-        // // Delete an Edge
-        // _graph.deleteEdge("a", "b");
-        // // Attempting to delete an edge that doesn't exist
-        // System.out.println();
-        // System.out.println("--- Attempting to delete an edge that doesn't exist ---");
-        // _graph.deleteEdge("a", "d");
 
         // TODO: Print out the added nodes
         System.out.println();
@@ -45,7 +37,6 @@ public class Main {
         System.out.println(_graph._nodes.keySet());
 
         // Start Dijkstra
-        _graph.dijkstra("a");
 
         // Print out the nodes and the distance
         System.out.println();
@@ -58,5 +49,6 @@ public class Main {
         for (Edge edge : _graph._edges) {
             System.out.println("src: " + edge.getSrc() + " | dest: " + edge.getDest() + " | weight: " + edge.getWeight());
         }
+        _graph.dijkstra("a");
     }
 }

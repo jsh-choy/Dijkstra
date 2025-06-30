@@ -8,6 +8,7 @@ public class GraphImpl implements Graph {
     Map<String, Node> _nodes; //Do not delete.  Use this field to store your nodes.
     // key: name of node. value: a5.Node object associated with name
     LinkedList<EdgeImpl> _edges;
+    HashMap<String, Double> _graph = new HashMap<>();
 
     public GraphImpl() {
         _nodes = new HashMap<>();
@@ -34,7 +35,6 @@ public class GraphImpl implements Graph {
             _edges.add(e);
             return true;
         }
-
         return false;
     }
 
@@ -74,47 +74,35 @@ public class GraphImpl implements Graph {
     public Map<String, Double> dijkstra(String start) {
         // TODO: Implement Dijkstra's Algorithm here after checking if the other features work correctly
         System.out.println();
-        System.out.println("******** Reached Dijkstra ********");
-        System.out.println("- This function isn't functioning correctly right now");
-
-        HashMap<String, Double> _graph = new HashMap<>();
-        // Set the initial distance to the nodes to 0
-        //  Then set the rest of the nodes in the graph to -1
+        System.out.println("******** Starting Dijkstra ********");
         setInitDistance(start);
-        // TODO: Figure out how to visit each node whose distance is -1
-        //  At this point we are pointing at the starting node
-        //      1. Starting node
-        //      2. Set the nodes connected to starting node to the edge weight
-        //      3. Do this until all the out-edges are done
-        for (Node nd : _nodes.values()) {
-            // Check to see if there are outgoing edges
-            for (EdgeImpl ed : _edges) {
-                // For each edge connected to source
-                // If distance of dest node is <, not -1, distance of dest stays
-                // otherwise set the distance of dest node as the edge weight
-                if (nd.getDist() == 0) {
-                    // This is the starting node, continue
-                    continue;
-                }
+        Node currNode;
+        Node nextNode;
+        System.out.println("Size of _edges (before): " + _edges.size());
 
-                if (nd.getDist() == -1) {
-                    nd.setDist(ed.getWeight());
-                    deleteEdge(ed.getSrc(), ed.getDest());
-                    continue;
-                }
-
-                if (nd.getDist() < ed.getWeight()) {
-                    deleteEdge(ed.getSrc(), ed.getDest());
-                    continue;
-                }
-
-                if (nd.getDist() > ed.getWeight()) {
-                    deleteEdge(ed.getSrc(), ed.getDest());
-                    nd.setDist(ed.getWeight());
-                }
+        while (!_edges.isEmpty()) {
+            nextNode = _nodes.get(_edges.peek().getDest());
+            if (nextNode.getDist() == -1) {
+                nextNode.setDist(_edges.peek().getWeight());
+                System.out.println("current edge src: " + _edges.peek().getSrc());
+                System.out.println("current edge dest: " + _edges.peek().getDest());
+                System.out.println("current edge weight: " + _edges.peek().getWeight());
+                System.out.println();
+                _edges.pop();
+                continue;
+            }
+            if (nextNode.getDist() > _edges.peek().getWeight()) {
+                currNode = _nodes.get(_edges.peek().getSrc());
+                double sum =  currNode.getDist() + _edges.peek().getWeight();
+                nextNode.setDist(sum);
+                System.out.println("current edge src: " + _edges.peek().getSrc());
+                System.out.println("current edge dest: " + _edges.peek().getDest());
+                System.out.println("current edge weight: " + _edges.peek().getWeight());
+                System.out.println();
+                _edges.pop();
             }
         }
-
+        System.out.println("distance to d: " + _nodes.get("d").getDist());
         System.out.println("******** Ended Dijkstra ********");
         return _graph;
     }
@@ -127,6 +115,5 @@ public class GraphImpl implements Graph {
             }
             nd.setDist(-1);
         }
-
     }
 }

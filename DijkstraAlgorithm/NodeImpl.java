@@ -1,8 +1,5 @@
 package DijkstraAlgorithm;
 
-
-import java.util.ArrayList;
-
 public class NodeImpl implements Node {
     private String _name;
     private double _distance;
