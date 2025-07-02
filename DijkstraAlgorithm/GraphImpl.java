@@ -76,34 +76,8 @@ public class GraphImpl implements Graph {
         System.out.println();
         System.out.println("******** Starting Dijkstra ********");
         setInitDistance(start);
-        Node currNode;
-        Node nextNode;
-        System.out.println("Size of _edges (before): " + _edges.size());
-
-        while (!_edges.isEmpty()) {
-            currNode = _nodes.get(_edges.peek().getSrc());
-            nextNode = _nodes.get(_edges.peek().getDest());
-            if (nextNode.getDist() == -1) {
-                nextNode.setDist(_edges.peek().getWeight());
-                System.out.println(_edges.peek().getSrc() +
-                        " -> " + _edges.peek().getDest() + " | dist: " + _edges.peek().getWeight());
-                _edges.pop();
-                continue;
-            }
-            if (nextNode.getDist() > _edges.peek().getWeight()) {
-                System.out.println("Node name: " + currNode.getName());
-                double sum =  currNode.getDist() + _edges.peek().getWeight();
-                nextNode.setDist(sum);
-                _graph.put(currNode.getName(), currNode.getDist());
-
-                System.out.println(_edges.peek().getSrc() +
-                        " -> " + _edges.peek().getDest() + " | dist: " + _edges.peek().getWeight());
-
-                _edges.pop();
-            }
-        }
-        System.out.println("graph entry: " + _graph.entrySet());
-        // TODO: Need to figure out how to keep track of the distance to the other nodes from the starting node
+        setDistanceToNodes();
+        printStuff();
         System.out.println("******** Ended Dijkstra ********");
         return _graph;
     }
@@ -112,9 +86,44 @@ public class GraphImpl implements Graph {
         for (Node nd: _nodes.values()) {
             if (nd.getName() == start) {
                 nd.setDist(0);
+                _graph.put(start, 0.0);
                 continue;
             }
             nd.setDist(-1);
         }
+    }
+
+    private void setDistanceToNodes() {
+        Node currNode;
+        Node nextNode;
+
+        while (!_edges.isEmpty()) {
+            currNode = _nodes.get(_edges.peek().getSrc());
+            nextNode = _nodes.get(_edges.peek().getDest());
+            if (nextNode.getDist() == -1) {
+                nextNode.setDist(_edges.peek().getWeight());
+                System.out.println(_edges.peek().getSrc() +
+                        " -> " + _edges.peek().getDest() + " | dist: " + _edges.peek().getWeight());
+                continue;
+            }
+            if (nextNode.getDist() > _edges.peek().getWeight()) {
+                double sum =  currNode.getDist() + _edges.peek().getWeight();
+                nextNode.setDist(sum);
+                _graph.put(currNode.getName(), currNode.getDist());
+                System.out.println(_edges.peek().getSrc() +
+                        " -> " + _edges.peek().getDest() + " | dist: " + _edges.peek().getWeight());
+                _edges.pop();
+                continue;
+            }
+            double sum =  currNode.getDist() + _edges.peek().getWeight();
+            nextNode.setDist(sum);
+            _graph.put(nextNode.getName(), nextNode.getDist());
+            _edges.pop();
+        }
+    }
+
+    private void printStuff() {
+        System.out.println();
+        System.out.println("graph entry: " + _graph.entrySet());
     }
 }

@@ -9,8 +9,6 @@ public class Main {
         //Hint: Try to test basic operations (e.g., adding a few nodes and edges to graphs)
         //before you implement more complex methods
         System.out.println();
-        System.out.println("******* Creating the graph *******");
-        System.out.println();
 
         GraphImpl _graph = new GraphImpl();
 
@@ -18,12 +16,14 @@ public class Main {
         _graph.addNode("b");
         _graph.addNode("c");
         _graph.addNode("d");
+        _graph.addNode("e");
 
         // Create Edges (a,b), (a,c), (b,c), (c,d)
         _graph.addEdge("a", "b", 1.0);
         _graph.addEdge("a", "c", 9.0);
         _graph.addEdge("b", "c", 2.0);
         _graph.addEdge("c", "d", 5.0);
+        _graph.addEdge("d", "e", 10.0);
 
 //        System.out.println("Nodes added: " + _graph.numNodes());
 //        System.out.println("Edges added: " + _graph.numEdges());
