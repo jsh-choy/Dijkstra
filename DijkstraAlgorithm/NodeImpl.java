@@ -1,8 +1,11 @@
 package DijkstraAlgorithm;
 
+import java.util.LinkedList;
+
 public class NodeImpl implements Node {
     private String _name;
     private double _distance;
+    private LinkedList<EdgeImpl> _edges;
 
     /* You will include the method signatures (return type, name, and arg types) for any node methods you
     need in this file. */
@@ -19,59 +22,39 @@ public class NodeImpl implements Node {
         this._name = name;
     }
 
+    public boolean edgeExists(String a, String b) {
+        // TODO: edge exists
+        for (EdgeImpl ed : _edges) {
+            if (ed.getSrc() == a && ed.getDest() == b) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean addEdge(String a, String b, double weight) {
+        if (edgeExists(a, b)) {
+            return false;
+        }
+        EdgeImpl ed = new EdgeImpl(a, b, weight);
+        _edges.add(ed);
+        return true;
+    }
+
+    public void deleteEdge(String a, String b) {
+        if (edgeExists(a, b)) {
+            for (EdgeImpl ed : _edges) {
+                if (ed.getSrc() == a && ed.getDest() == b) {
+                    _edges.remove(ed);
+                }
+            }
+        }
+    }
+
     @Override
     public String getName() {
         return _name;
     }
-
-//    public ArrayList<EdgeImpl> getOutEdges() {
-//        // TODO: Check if this implementation is correct
-//
-//        if (_outEdges.isEmpty()) {
-//            System.out.println("There are no outgoing edges");
-//        } else {
-//            return _outEdges;
-//        }
-//        return null;
-//    }
-//
-//    @Override
-//    public boolean edgeExists(Node dest) {
-//        // If there is an outgoing edge to dest, return true
-//        for (EdgeImpl e : _outEdges) {
-//            if (e.getDest() == dest.getName()) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean addEdge(String src, String dest, double weight) {
-//        EdgeImpl e = new EdgeImpl(src, dest, weight);
-//        if (_outEdges.contains(e)) {
-//            return false;
-//        } else {
-//            _outEdges.add(e);
-//            return true;
-//        }
-//    }
-//
-//    @Override
-//    public boolean deleteEdge(Node dest) {
-//        if (edgeExists(dest)) {
-//            for (EdgeImpl e : _outEdges) {
-//                if (e.getDest() == dest.getName()) {
-//                    _outEdges.remove(e);
-//                    return true;
-//                }
-//            }
-//        } else {
-//            return false;
-//        }
-//
-//        return false;
-//    }
 
     @Override
     public void setDist(double x) {

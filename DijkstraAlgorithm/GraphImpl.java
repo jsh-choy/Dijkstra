@@ -31,7 +31,6 @@ public class GraphImpl implements Graph {
         // Check if the graph contains the nodes
         if (_nodes.containsKey(src) && _nodes.containsKey(dest)) {
             EdgeImpl e = new EdgeImpl(src, dest, weight);
-//            _nodes.get(src).addEdge(src, dest, weight);
             _edges.add(e);
             return true;
         }

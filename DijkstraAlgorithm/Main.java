@@ -9,46 +9,33 @@ public class Main {
         //Hint: Try to test basic operations (e.g., adding a few nodes and edges to graphs)
         //before you implement more complex methods
         System.out.println();
-
+        // Create the graph
+        // Example: GraphImpl _graph = new GraphImpl();
         GraphImpl _graph = new GraphImpl();
 
-        _graph.addNode("a");
-        _graph.addNode("b");
-        _graph.addNode("c");
-        _graph.addNode("d");
-        _graph.addNode("e");
+        // Add Nodes: _graph.addNode("node name");
+        _graph.addNode("0");
+        _graph.addNode("1");
+        _graph.addNode("2");
+        _graph.addNode("3");
+        _graph.addNode("4");
+        _graph.addNode("5");
+        _graph.addNode("6");
 
-        // Create Edges (a,b), (a,c), (b,c), (c,d)
-        _graph.addEdge("a", "b", 1.0);
-        _graph.addEdge("a", "c", 9.0);
-        _graph.addEdge("b", "c", 2.0);
-        _graph.addEdge("c", "d", 5.0);
-        _graph.addEdge("d", "e", 10.0);
+        // Add Edges: _graph.addEdge("source", "destination", 0.0)
+        _graph.addEdge("0", "1", 2.0);
+        _graph.addEdge("0", "2", 6.0);
+        _graph.addEdge("1", "3", 5.0);
+        _graph.addEdge("2", "3", 8.0);
+        _graph.addEdge("3", "4", 10.0);
+        _graph.addEdge("3", "5", 15.0);
+        _graph.addEdge("4", "5", 6.0);
+        _graph.addEdge("3", "4", 10.0);
+        _graph.addEdge("5", "6", 6.0);
+        _graph.addEdge("4", "6", 2.0);
 
-//        System.out.println("Nodes added: " + _graph.numNodes());
-//        System.out.println("Edges added: " + _graph.numEdges());
 
-        // TODO: Print out the added nodes
-//        System.out.println();
-//        System.out.println("******* Ended *******");
-//
-//        System.out.println();
-//        System.out.println("--- Testing output ---");
-//        System.out.println(_graph._nodes.keySet());
-
-        // Start Dijkstra
-
-        // Print out the nodes and the distance
-//        System.out.println();
-//        System.out.println("------- Nodes in the graph -------");
-//        for (Node nd : _graph._nodes.values()) {
-//            System.out.println("node: " + nd.getName() + ", distance: " + nd.getDist());
-//        }
-//        System.out.println();
-//        System.out.println("------- Edges in the Graph --------");
-//        for (Edge edge : _graph._edges) {
-//            System.out.println("src: " + edge.getSrc() + " | dest: " + edge.getDest() + " | weight: " + edge.getWeight());
-//        }
-        _graph.dijkstra("a");
+        // Start dijkstra: _graph.dijkstra("start)
+        _graph.dijkstra("0");
     }
 }
