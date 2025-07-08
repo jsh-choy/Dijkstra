@@ -1,11 +1,11 @@
 package DijkstraAlgorithm;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class NodeImpl implements Node {
     private String _name;
     private double _distance;
-    private LinkedList<EdgeImpl> _edges;
+    private ArrayList<EdgeImpl> _edges;
 
     /* You will include the method signatures (return type, name, and arg types) for any node methods you
     need in this file. */
@@ -22,18 +22,22 @@ public class NodeImpl implements Node {
         this._name = name;
     }
 
-    public boolean edgeExists(String a, String b) {
+    public boolean edgeExists(String dest) {
         // TODO: edge exists
-        for (EdgeImpl ed : _edges) {
-            if (ed.getSrc() == a && ed.getDest() == b) {
-                return true;
-            }
+        EdgeImpl ed = new EdgeImpl(_name, dest, _distance);
+        System.out.println(ed);
+        return _edges.contains(ed);
+    }
+
+    public ArrayList<EdgeImpl> getOutEdges() {
+        if (_edges.isEmpty()) {
+            return null;
         }
-        return false;
+        return _edges;
     }
 
     public boolean addEdge(String a, String b, double weight) {
-        if (edgeExists(a, b)) {
+        if (edgeExists(b)) {
             return false;
         }
         EdgeImpl ed = new EdgeImpl(a, b, weight);
@@ -41,14 +45,16 @@ public class NodeImpl implements Node {
         return true;
     }
 
-    public void deleteEdge(String a, String b) {
-        if (edgeExists(a, b)) {
+    public boolean deleteEdge(String dest) {
+        if (edgeExists(dest)) {
             for (EdgeImpl ed : _edges) {
-                if (ed.getSrc() == a && ed.getDest() == b) {
+                if (ed.getDest() == dest) {
                     _edges.remove(ed);
+                    return true;
                 }
             }
         }
+        return false;
     }
 
     @Override

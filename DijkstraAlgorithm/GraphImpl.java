@@ -1,18 +1,16 @@
 package DijkstraAlgorithm;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 public class GraphImpl implements Graph {
     Map<String, Node> _nodes; //Do not delete.  Use this field to store your nodes.
     // key: name of node. value: a5.Node object associated with name
-    LinkedList<EdgeImpl> _edges;
     HashMap<String, Double> _graph = new HashMap<>();
+//    Comparator<ShortestPathQueueObject> _compare = Comparator.comparingDouble(a -> a.distance);
+//    PriorityQueue<ShortestPathQueueObject> _queue = new PriorityQueue<>(_compare);
 
     public GraphImpl() {
         _nodes = new HashMap<>();
-        _edges = new LinkedList<>();
     }
 
     @Override
@@ -21,6 +19,7 @@ public class GraphImpl implements Graph {
             return false;
         } else {
             Node nd = new NodeImpl(name);
+            nd.setDist(-1.0);
             _nodes.put(name, nd);
             return true;
         }
@@ -28,19 +27,18 @@ public class GraphImpl implements Graph {
 
     @Override
     public boolean addEdge(String src, String dest, double weight) {
-        // Check if the graph contains the nodes
-        if (_nodes.containsKey(src) && _nodes.containsKey(dest)) {
-            EdgeImpl e = new EdgeImpl(src, dest, weight);
-            _edges.add(e);
-            return true;
+        if (_nodes.get(src).edgeExists(dest)) {
+            return false;
         }
-        return false;
+        _nodes.get(src).addEdge(src, dest, weight);
+        return true;
     }
 
     @Override
     public boolean deleteNode(String name) {
         if (_nodes.containsKey(name)) {
-            _edges.removeIf(e -> e.getDest() == name);
+            System.out.println(_nodes.keySet());
+            _nodes.get(name).deleteEdge(name);
             _nodes.remove(name);
             return true;
         } else {
@@ -50,12 +48,10 @@ public class GraphImpl implements Graph {
 
     @Override
     public boolean deleteEdge(String src, String dest) {
-        for (EdgeImpl e : _edges) {
-            if (e.getSrc() == src && e.getDest() == dest) {
-                _edges.remove(e);
-                return true;
-            }
+        if (_nodes.containsValue(src)) {
+            return _nodes.get(src).deleteEdge(dest);
         }
+
         return false;
     }
 
@@ -66,7 +62,12 @@ public class GraphImpl implements Graph {
 
     @Override
     public int numEdges() {
-        return _edges.size();
+        int countEdges = 0;
+        for (String nd : _nodes.keySet()) {
+            ArrayList<EdgeImpl> edges = _nodes.get(nd).getOutEdges();
+            countEdges += edges.size();
+        }
+        return countEdges;
     }
 
     @Override
@@ -95,30 +96,6 @@ public class GraphImpl implements Graph {
     private void setDistanceToNodes() {
         Node currNode;
         Node nextNode;
-
-        while (!_edges.isEmpty()) {
-            currNode = _nodes.get(_edges.peek().getSrc());
-            nextNode = _nodes.get(_edges.peek().getDest());
-            if (nextNode.getDist() == -1) {
-                nextNode.setDist(_edges.peek().getWeight());
-                System.out.println(_edges.peek().getSrc() +
-                        " -> " + _edges.peek().getDest() + " | dist: " + _edges.peek().getWeight());
-                continue;
-            }
-            if (nextNode.getDist() > _edges.peek().getWeight()) {
-                double sum =  currNode.getDist() + _edges.peek().getWeight();
-                nextNode.setDist(sum);
-                _graph.put(currNode.getName(), currNode.getDist());
-                System.out.println(_edges.peek().getSrc() +
-                        " -> " + _edges.peek().getDest() + " | dist: " + _edges.peek().getWeight());
-                _edges.pop();
-                continue;
-            }
-            double sum =  currNode.getDist() + _edges.peek().getWeight();
-            nextNode.setDist(sum);
-            _graph.put(nextNode.getName(), nextNode.getDist());
-            _edges.pop();
-        }
     }
 
     private void printStuff() {
