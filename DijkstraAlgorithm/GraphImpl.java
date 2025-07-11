@@ -28,8 +28,10 @@ public class GraphImpl implements Graph {
     @Override
     public boolean addEdge(String src, String dest, double weight) {
         if (_nodes.get(src).edgeExists(dest)) {
+            System.out.println("Edge already exists: " + " src: " + src + " | dest: " + dest + " | weight: " + weight);
             return false;
         }
+
         _nodes.get(src).addEdge(src, dest, weight);
         return true;
     }
@@ -37,19 +39,23 @@ public class GraphImpl implements Graph {
     @Override
     public boolean deleteNode(String name) {
         if (_nodes.containsKey(name)) {
-            System.out.println(_nodes.keySet());
-            _nodes.get(name).deleteEdge(name);
+            if (_nodes.get(name).getOutEdges().isEmpty()) {
+                _nodes.remove(name);
+                return true;
+            }
+
+            _nodes.get(name).getOutEdges().clear();
             _nodes.remove(name);
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     @Override
     public boolean deleteEdge(String src, String dest) {
-        if (_nodes.containsValue(src)) {
-            return _nodes.get(src).deleteEdge(dest);
+        if (_nodes.containsKey(src)) {
+            return _nodes.get(src).deleteNodeEdge(dest);
         }
 
         return false;
@@ -84,12 +90,13 @@ public class GraphImpl implements Graph {
 
     private void setInitDistance(String start) {
         for (Node nd: _nodes.values()) {
-            if (nd.getName() == start) {
-                nd.setDist(0);
+            if (Objects.equals(nd.getName(), start)) {
+                nd.setDist(0.0);
                 _graph.put(start, 0.0);
                 continue;
             }
-            nd.setDist(-1);
+            nd.setDist(-1.0);
+            _graph.put(nd.getName(), -1.0);
         }
     }
 
@@ -101,5 +108,10 @@ public class GraphImpl implements Graph {
     private void printStuff() {
         System.out.println();
         System.out.println("graph entry: " + _graph.entrySet());
+
+        System.out.println("Edges in graph: ");
+        for (int i = 0; i < _nodes.size(); i++) {
+            System.out.println("  " + _nodes.get(i).getOutEdges().get(i));
+        }
     }
 }

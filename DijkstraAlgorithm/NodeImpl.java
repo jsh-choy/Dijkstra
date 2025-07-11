@@ -1,6 +1,7 @@
 package DijkstraAlgorithm;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class NodeImpl implements Node {
     private String _name;
@@ -20,19 +21,20 @@ public class NodeImpl implements Node {
 
     public NodeImpl(String name) {
         this._name = name;
+        this._edges = new ArrayList<>();
     }
 
     public boolean edgeExists(String dest) {
         // TODO: edge exists
-        EdgeImpl ed = new EdgeImpl(_name, dest, _distance);
-        System.out.println(ed);
-        return _edges.contains(ed);
+        for (EdgeImpl ed : _edges) {
+            if (Objects.equals(ed.getDest(), dest)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<EdgeImpl> getOutEdges() {
-        if (_edges.isEmpty()) {
-            return null;
-        }
         return _edges;
     }
 
@@ -45,7 +47,7 @@ public class NodeImpl implements Node {
         return true;
     }
 
-    public boolean deleteEdge(String dest) {
+    public boolean deleteNodeEdge(String dest) {
         if (edgeExists(dest)) {
             for (EdgeImpl ed : _edges) {
                 if (ed.getDest() == dest) {
@@ -72,6 +74,3 @@ public class NodeImpl implements Node {
         return _distance;
     }
 }
-
-
-

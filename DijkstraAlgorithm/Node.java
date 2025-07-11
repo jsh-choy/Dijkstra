@@ -20,7 +20,7 @@ public interface Node {
     ArrayList<EdgeImpl> getOutEdges();
     boolean edgeExists(String dest);
     boolean addEdge(String src, String dest, double weight);
-    boolean deleteEdge(String dest);
+    boolean deleteNodeEdge(String dest);
     void setDist(double dist);
     double getDist();
 }
