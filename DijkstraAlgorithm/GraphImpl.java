@@ -28,7 +28,7 @@ public class GraphImpl implements Graph {
     @Override
     public boolean addEdge(String src, String dest, double weight) {
         if (_nodes.get(src).edgeExists(dest)) {
-            System.out.println("Edge already exists: " + " src: " + src + " | dest: " + dest + " | weight: " + weight);
+            System.out.println("Edge already exists between: " + " src: " + src + " | dest: " + dest);
             return false;
         }
 
@@ -101,17 +101,22 @@ public class GraphImpl implements Graph {
     }
 
     private void setDistanceToNodes() {
-        Node currNode;
-        Node nextNode;
+        Node curr;
     }
 
     private void printStuff() {
         System.out.println();
         System.out.println("graph entry: " + _graph.entrySet());
+        System.out.println();
+        System.out.println(" Edges in graph: ");
+        for (String nd : _nodes.keySet()) {
+            ArrayList<EdgeImpl> edd = new ArrayList<>();
+            edd = _nodes.get(nd).getOutEdges();
 
-        System.out.println("Edges in graph: ");
-        for (int i = 0; i < _nodes.size(); i++) {
-            System.out.println("  " + _nodes.get(i).getOutEdges().get(i));
+            for (int i = 0; i < edd.size(); i++) {
+                System.out.println("src: " + edd.get(i).getSrc() + " | dest: " + edd.get(i).getDest() + " | weight: "
+                + edd.get(i).getWeight());
+            }
         }
     }
 }

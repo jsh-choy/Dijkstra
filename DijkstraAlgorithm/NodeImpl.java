@@ -42,6 +42,7 @@ public class NodeImpl implements Node {
         if (edgeExists(b)) {
             return false;
         }
+
         EdgeImpl ed = new EdgeImpl(a, b, weight);
         _edges.add(ed);
         return true;

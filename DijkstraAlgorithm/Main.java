@@ -16,18 +16,12 @@ public class Main {
         _graph.addNode("b");
         _graph.addNode("c");
         _graph.addNode("d");
-        _graph.addNode("e");
 
-        // Should fail when adding an edge that is already there
-        _graph.addEdge("a", "b", 2.0);
-
-//        _graph.deleteNode("a");
-        _graph.addEdge("c", "a", 9.0);
-        _graph.addEdge("c", "d", 6.0);
-        _graph.addEdge("a", "e", 5.0);
-        _graph.addEdge("d", "e", 4.0);
-
-        // Add Edges: _graph.addEdge("source", "destination", 0.0)
+        _graph.addEdge("a", "b", 3.0);
+        _graph.addEdge("a", "c", 2.0);
+        _graph.addEdge("b", "c", 4.0);
+        _graph.addEdge("c", "d", 5.0);
+        _graph.addEdge("d", "b", 6.0);
 
 
 //         Start dijkstra: _graph.dijkstra("start)
