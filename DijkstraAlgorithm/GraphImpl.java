@@ -82,7 +82,7 @@ public class GraphImpl implements Graph {
         System.out.println();
         System.out.println("******** Starting Dijkstra ********");
         setInitDistance(start);
-        setDistanceToNodes();
+        setDistanceToNodes(start);
         printStuff();
         System.out.println("******** Ended Dijkstra ********");
         return _graph;
@@ -100,8 +100,20 @@ public class GraphImpl implements Graph {
         }
     }
 
-    private void setDistanceToNodes() {
-        Node curr;
+    private void setDistanceToNodes(String start) {
+        String curr = start;
+        String next;
+        if (_nodes.get(curr).getDist() == 0.0) {
+            if(!_nodes.get(curr).getOutEdges().isEmpty()) {
+                for (EdgeImpl ed : _nodes.get(curr).getOutEdges()) {
+                    next = ed.getDest();
+                    if (_nodes.get(next).getDist() == -1.0) {
+                        _nodes.get(next).setDist(ed.getWeight());
+                        System.out.println(_nodes.get(next).getDist());
+                    }
+                }
+            }
+        }
     }
 
     private void printStuff() {
@@ -110,9 +122,8 @@ public class GraphImpl implements Graph {
         System.out.println();
         System.out.println(" Edges in graph: ");
         for (String nd : _nodes.keySet()) {
-            ArrayList<EdgeImpl> edd = new ArrayList<>();
+            ArrayList<EdgeImpl> edd;
             edd = _nodes.get(nd).getOutEdges();
-
             for (int i = 0; i < edd.size(); i++) {
                 System.out.println("src: " + edd.get(i).getSrc() + " | dest: " + edd.get(i).getDest() + " | weight: "
                 + edd.get(i).getWeight());
